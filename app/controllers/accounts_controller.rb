@@ -11,6 +11,7 @@ class AccountsController < FrontController
   def show
     @account = current_user.accounts.find(params[:id])
     @new_transaction = Transaction.new
+    @new_schedule = Schedule.new
   end
 
   def create
@@ -38,6 +39,19 @@ class AccountsController < FrontController
     if @new_transaction.save
       redirect_to action: 'show', :id => @account.id
     else
+      @new_schedule = Schedule.new
+      render :show
+    end
+  end
+
+  def create_schedule
+    @account = current_user.accounts.find(params[:id])
+    @new_schedule = Schedule.new(params.require(:schedule).permit(:name, :income, :outcome, :income_currency, :outcome_currency, :starting_at, :frequency))
+    @new_schedule.account = @account
+    if @new_schedule.save
+      redirect_to action: 'show', :id => @account.id
+    else
+      @new_transaction = Transaction.new
       render :show
     end
   end

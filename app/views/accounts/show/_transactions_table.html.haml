@@ -4,15 +4,30 @@
       %th Transaction name
       %th Income
       %th Outcome
+      %th Balance
       %th Date
       %th
   %tbody
-    - for transaction in @account.transactions
+    - balance = @account.balance
+    - for transaction in @account.transactions.order('accounted_at desc')
       %tr
         %td= transaction.name
-        %td= humanized_money_with_symbol transaction.income
-        %td= humanized_money_with_symbol transaction.outcome
+        %td
+          %span.income= humanized_money_with_symbol transaction.income if transaction.income_cents != 0
+        %td
+          %span.outcome= humanized_money_with_symbol transaction.outcome if transaction.outcome_cents != 0
+        %td
+          %span{:class => balance > 0 ? 'income' : 'outcome'}= humanized_money_with_symbol balance
         %td= transaction.accounted_at.strftime('%Y/%m/%d')
         %td
           = link_to 'Delete', transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
+      - balance -= transaction.income
+      - balance += transaction.outcome
+    %tr
+      %td Initial state
+      %td
+      %td
+      %td= humanized_money_with_symbol balance
+      %td
+      %td
 

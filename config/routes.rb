@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :accounts do
     member do
       post 'create_transaction'
+      post 'create_schedule'
     end
   end
 
   resources :transactions, :only => [:destroy]
+  resources :schedules, :only => [:destroy]
 
 end

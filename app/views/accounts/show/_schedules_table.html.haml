@@ -1,0 +1,21 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Schedule name
+      %th Income
+      %th Outcome
+      %th Starting at
+      %th Frequency
+      %th
+  %tbody
+    - for schedule in @account.schedules.order('starting_at desc')
+      %tr
+        %td= schedule.name
+        %td
+          %span.income= humanized_money_with_symbol schedule.income if schedule.income_cents != 0
+        %td
+          %span.outcome= humanized_money_with_symbol schedule.outcome if schedule.outcome_cents != 0
+        %td= schedule.starting_at.strftime('%Y/%m/%d')
+        %td= schedule.frequency
+        %td
+          = link_to 'Delete', schedule_path(schedule), :method=>'delete', :class => 'btn btn-danger btn-xs'

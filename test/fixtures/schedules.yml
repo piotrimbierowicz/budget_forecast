@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  income: 
+  outcome: 
+  name: MyString
+  start_date: 2014-07-12
+  frequency: MyString
+
+two:
+  income: 
+  outcome: 
+  name: MyString
+  start_date: 2014-07-12
+  frequency: MyString

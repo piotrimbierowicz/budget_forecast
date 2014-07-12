@@ -2,5 +2,13 @@
   Account:
   = @account.name
 
+%h4
+  Balance
+  = humanized_money_with_symbol @account.balance
+
+%hr
+
 = render :partial => 'accounts/show/transactions_table'
+= render :partial => 'accounts/show/schedules_table'
 = render :partial => 'accounts/show/add_transaction'
+= render :partial => 'accounts/show/add_schedule'

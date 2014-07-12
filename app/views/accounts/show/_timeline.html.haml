@@ -1,0 +1,6 @@
+.btn-group.btn-group-justified
+  - start_date = @period - 3.months
+  - 6.times do
+    %a.btn.btn-default{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
+      = start_date.strftime('%h %Y')
+      - start_date += 1.month

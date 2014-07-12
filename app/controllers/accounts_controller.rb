@@ -12,6 +12,12 @@ class AccountsController < FrontController
     @account = current_user.accounts.find(params[:id])
     @new_transaction = Transaction.new
     @new_schedule = Schedule.new
+    if params[:month].present? and params[:year].present?
+      @period = Date.new(params[:year].to_i, params[:month].to_i, 1)
+    else
+      @period = Date.current
+    end
+    @transactions = @account.transactions_until(@period.end_of_month)
   end
 
   def create

@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :accounts
   has_many :transactions, :through => :accounts
+  has_many :schedules, :through => :accounts
 
 end

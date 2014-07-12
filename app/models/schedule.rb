@@ -11,4 +11,14 @@ class Schedule < ActiveRecord::Base
 
   FREQUENCIES = [Monthly = 'monthly']
 
+  def transaction_at(date)
+    Transaction.new({
+        account: self.account,
+        income: self.income,
+        outcome: self.outcome,
+        name: self.name,
+        accounted_at: date
+    })
+  end
+
 end

@@ -1,0 +1,34 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Transaction name
+      %th Income
+      %th Outcome
+      %th Balance
+      %th Date
+      %th
+  %tbody
+    - balance = @account.balance_until(@period.end_of_month)
+    - for transaction in @transactions.sort {|a,b| b.accounted_at <=> a.accounted_at}
+      - if transaction.accounted_at >= @period.beginning_of_month and transaction.accounted_at <= @period.end_of_month or true
+        %tr
+          %td= transaction.name
+          %td
+            %span.income= humanized_money_with_symbol transaction.income if transaction.income_cents != 0
+          %td
+            %span.outcome= humanized_money_with_symbol transaction.outcome if transaction.outcome_cents != 0
+          %td
+            %span{:class => balance > 0 ? 'income' : 'outcome'}= humanized_money_with_symbol balance
+          %td= transaction.accounted_at.strftime('%Y/%m/%d')
+          %td
+            -#= link_to 'Delete', transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
+      - balance -= transaction.income
+      - balance += transaction.outcome
+    %tr
+      %td Initial state
+      %td
+      %td
+      %td= humanized_money_with_symbol balance
+      %td
+      %td
+

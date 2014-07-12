@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <ul class="nav nav-pill">
+        <li><a href="<%= accounts_path %>">Accounts</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-8">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>

@@ -33,7 +33,7 @@ class Account < ActiveRecord::Base
 
   def transactions_until(end_date)
     result = []
-    result += transactions.to_a
+    result += transactions.where('accounted_at <= ?', end_date).to_a
     for schedule in schedules
       date = schedule.starting_at
       while date < end_date

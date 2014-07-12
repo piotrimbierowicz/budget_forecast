@@ -10,6 +10,7 @@ class AccountsController < FrontController
 
   def show
     @account = current_user.accounts.find(params[:id])
+    @new_transaction = Transaction.new
   end
 
   def create
@@ -27,6 +28,17 @@ class AccountsController < FrontController
       redirect_to action: 'index'
     else
       redirect_to action: 'index'
+    end
+  end
+
+  def create_transaction
+    @account = current_user.accounts.find(params[:id])
+    @new_transaction = Transaction.new(params.require(:transaction).permit(:name, :income, :outcome, :income_currency, :outcome_currency, :accounted_at))
+    @new_transaction.account = @account
+    if @new_transaction.save
+      redirect_to action: 'show', :id => @account.id
+    else
+      render :show
     end
   end
 

@@ -1,0 +1,18 @@
+%table.table.table-striped
+  %thead
+    %tr
+      %th Transaction name
+      %th Income
+      %th Outcome
+      %th Date
+      %th
+  %tbody
+    - for transaction in @account.transactions
+      %tr
+        %td= transaction.name
+        %td= humanized_money_with_symbol transaction.income
+        %td= humanized_money_with_symbol transaction.outcome
+        %td= transaction.accounted_at.strftime('%Y/%m/%d')
+        %td
+          = link_to 'Delete', transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
+

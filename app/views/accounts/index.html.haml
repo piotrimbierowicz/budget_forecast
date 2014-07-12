@@ -12,4 +12,4 @@
         %td= link_to account.name, account_path(account)
         %td
         %td
-          = link_to 'Delete', account_path(account), {:method => 'delete', :confirm => 'Are you sure?'}, :class => 'btn btn-danger'
+          = link_to 'Delete', account_path(account), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger'

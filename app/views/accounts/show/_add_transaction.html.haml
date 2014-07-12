@@ -1,0 +1,22 @@
+%h3 Add tranaction
+= form_for @new_transaction, :url => create_transaction_account_path(@account) do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :income
+    = f.text_field :income, :class => 'form-control'
+  .form-group
+    = f.label :income_currency
+    = f.select :income_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, :class => 'form-control'
+  .form-group
+    = f.label :outcome
+    = f.text_field :outcome, :class => 'form-control'
+  .form-group
+    = f.label :outcome_currency
+    = f.select :outcome_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, :class => 'form-control'
+  .form-group
+    = f.label :accounted_at
+    = f.text_field :accounted_at, :class => 'form-control'
+  .form-group
+    = f.submit 'Add', :class => 'btn btn-primary'

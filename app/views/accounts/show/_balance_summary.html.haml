@@ -1,11 +1,11 @@
 %table.table.table-striped
   %thead
     %tr
-      %th Transaction name
-      %th Income
-      %th Outcome
-      %th Balance
-      %th Date
+      %th= Transaction.human_attribute_name :name
+      %th= Transaction.human_attribute_name :income
+      %th= Transaction.human_attribute_name :outcome
+      %th= I18n.t 'views.accounts.balance'
+      %th= Transaction.human_attribute_name :accounted_at
       %th
   %tbody
     - balance = @account.balance_until(@period.end_of_month)
@@ -25,7 +25,7 @@
       - balance -= transaction.income
       - balance += transaction.outcome
     %tr
-      %td Initial state
+      %td= I18n.t 'views.accounts.initial_state'
       %td
       %td
       %td= humanized_money_with_symbol balance

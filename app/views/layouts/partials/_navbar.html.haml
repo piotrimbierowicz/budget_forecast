@@ -13,7 +13,7 @@
       %ul.nav.navbar-nav
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            Accounts
+            = I18n.t 'activerecord.models.account.few'
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             - for account in current_user.accounts
@@ -21,22 +21,15 @@
                 %a{href: account_path(account)}= account.name
             %li.divider
             %li
-              %a{href: accounts_path} See all
+              %a{href: accounts_path}= I18n.t 'buttons.see_all'
         %li
-          %a{href: "#"} Settings
+          %a{href: settings_path}= I18n.t 'activerecord.models.settings'
 
       %ul.nav.navbar-nav.navbar-right
         %li.dropdown
           %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-            More
+            = I18n.t 'buttons.more'
             %span.caret
           %ul.dropdown-menu{role: "menu"}
             %li
-              %a{href: "#"} Logout
-            %li
-              %a{href: "#"} Another action
-            %li
-              %a{href: "#"} Something else here
-            %li.divider
-            %li
-              %a{href: "#"} Separated link
+              %a{href: destroy_user_session_path, 'data-method' => 'delete'}= I18n.t 'buttons.logout'

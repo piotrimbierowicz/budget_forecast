@@ -1,0 +1,13 @@
+= form_for @settings_form, :url => update_settings_path do |f|
+  .form-horizontal
+    .form-group
+      = f.label :language, :class => 'control-label col-sm-4'
+      .col-sm-8
+        = f.select :language, I18n.available_locales, {}, :class => 'form-control'
+    .form-group
+      = f.label :currency, :class => 'control-label col-sm-4'
+      .col-sm-8
+        = f.select :currency, Money::Currency.all, {}, :class => 'form-control'
+    .form-group
+      .col-sm-offset-4.col-sm-8
+        = f.submit I18n.t('buttons.save'), :class => 'btn btn-primary'

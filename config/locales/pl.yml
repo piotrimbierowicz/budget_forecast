@@ -1,0 +1,51 @@
+pl:
+  activerecord:
+    models:
+      account:
+        one: 'Rachunek'
+        few: 'Rachunki'
+      settings: 'Ustawienia'
+      transaction:
+        one: 'Transakcja'
+        few: 'Transakcje'
+      schedules:
+        one: 'Stała płatność'
+        few: 'Stałe płatności'
+    attributes:
+      account:
+        name: Nazwa
+        balance: Saldo
+      settings_form:
+        language: 'Język'
+        currency: 'Waluta'
+      transaction:
+        name: 'Nazwa'
+        frequency: 'Częstotliwość'
+        income: 'Dochód'
+        outcome: 'Wydatek'
+        accounted_at: 'Data'
+      schedule:
+        name: 'Nazwa'
+        frequency: 'Częstotliwość'
+        income: 'Dochód'
+        outcome: 'Wydatek'
+        starting_at: 'Data rozpoczęcia'
+    update_success:
+      settings: 'Ustawienia zostały zaktualizowane'
+  buttons:
+    save: 'Zapisz'
+    logout: 'Wyloguj'
+    see_all: 'Zobacz wszystkie'
+    more: 'Więcej'
+    add: 'Dodaj'
+    delete: 'Usuń'
+    new_account: 'Nowy rachunek'
+  views:
+    accounts:
+      balance: 'Saldo'
+      current_balance: 'Aktualne saldo'
+      history: 'Historia'
+      add_schedule: 'Dodaj stałą płatność'
+      add_transaction: 'Dodaj transakcję'
+      initial_state: 'Stan początkowy'
+      balance_summary: 'Podsumowanie salda'

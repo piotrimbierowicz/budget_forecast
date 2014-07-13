@@ -1,11 +1,11 @@
 %table.table.table-striped
   %thead
     %tr
-      %th Schedule name
-      %th Income
-      %th Outcome
-      %th Starting at
-      %th Frequency
+      %th= Schedule.human_attribute_name :name
+      %th= Schedule.human_attribute_name :income
+      %th= Schedule.human_attribute_name :outcome
+      %th= Schedule.human_attribute_name :starting_at
+      %th= Schedule.human_attribute_name :frequency
       %th
   %tbody
     - for schedule in @account.schedules.order('starting_at desc')
@@ -18,4 +18,4 @@
         %td= schedule.starting_at.strftime('%Y/%m/%d')
         %td= schedule.frequency
         %td
-          = link_to 'Delete', schedule_path(schedule), :method=>'delete', :class => 'btn btn-danger btn-xs'
+          = link_to I18n.t('buttons.delete'), schedule_path(schedule), :method=>'delete', :class => 'btn btn-danger btn-xs'

@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  active_record:
+    models:
+      account:
+        one: 'Account'
+        few: 'Accounts'
+    update_success:
+      settings: 'Settings updated'
+    buttons:
+      save: 'Save'
+      logout: 'Logout'

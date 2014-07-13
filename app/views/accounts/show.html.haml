@@ -1,17 +1,43 @@
 %h3
-  Account:
+  = "#{I18n.t('activerecord.models.account.one')}:"
   = @account.name
 
 %h4
-  Balance
-  = humanized_money_with_symbol @account.balance
+  = I18n.t 'views.accounts.current_balance'
+  %span{:class => @account.balance_until(Date.current) > 0 ? 'income' : 'outcome'}
+    = humanized_money_with_symbol @account.balance_until(Date.current)
 
 %hr
 
 = render :partial => 'accounts/show/timeline'
 = render :partial => 'accounts/show/balance_chart'
-= render :partial => 'accounts/show/balance_summary'
-= render :partial => 'accounts/show/transactions_table'
-= render :partial => 'accounts/show/schedules_table'
-= render :partial => 'accounts/show/add_transaction'
-= render :partial => 'accounts/show/add_schedule'
+
+#accordion.panel-group{:style=>'margin-bottom: 50px'}
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", href: "#collapseOne"}
+          = I18n.t 'views.accounts.balance_summary'
+    #collapseOne.panel-collapse.collapse.in
+      .panel-body
+        = render :partial => 'accounts/show/balance_summary'
+
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", href: "#collapseTwo"}
+          = I18n.t 'activerecord.models.transaction.few'
+    #collapseTwo.panel-collapse.collapse
+      .panel-body
+        = render :partial => 'accounts/show/transactions_table'
+        = render :partial => 'accounts/show/add_transaction'
+
+  .panel.panel-default
+    .panel-heading
+      %h4.panel-title
+        %a{"data-parent" => "#accordion", "data-toggle" => "collapse", href: "#collapseThree"}
+          = I18n.t 'activerecord.models.schedules.few'
+    #collapseThree.panel-collapse.collapse
+      .panel-body
+        = render :partial => 'accounts/show/schedules_table'
+        = render :partial => 'accounts/show/add_schedule'

@@ -50,7 +50,7 @@ class Account < ActiveRecord::Base
     transactions_until(end_date).sort{|a,b| a.accounted_at <=> b.accounted_at}.each do |t|
       balance += t.income
       balance -= t.outcome
-      events << {balance: balance, date: t.accounted_at}
+      events << {balance: balance, date: t.accounted_at, name: t.name}
     end
     events
   end

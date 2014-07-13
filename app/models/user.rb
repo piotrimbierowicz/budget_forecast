@@ -8,4 +8,9 @@ class User < ActiveRecord::Base
   has_many :transactions, :through => :accounts
   has_many :schedules, :through => :accounts
 
+  has_settings do |s|
+    s.key :transactions, :defaults => { :currency => 'PLN' }
+    s.key :locals,  :defaults => { :language => :pl }
+  end
+
 end

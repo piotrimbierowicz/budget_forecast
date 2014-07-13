@@ -31,6 +31,8 @@ gem 'money-rails'
 gem 'eu_central_bank'
 gem 'ledermann-rails-settings'
 gem 'rails-i18n', '~> 4.0.0'
+gem 'i18n_data'
+gem 'geocoder'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

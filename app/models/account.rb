@@ -8,7 +8,7 @@ class Account < ActiveRecord::Base
   validates_presence_of :user_id
 
   def income_until(end_date)
-    sum = Money.new(0, 'PLN')
+    sum = Money.new(0, user.settings(:transactions).currency)
     transactions_until(end_date).each do |t|
       sum += t.income
     end
@@ -16,7 +16,7 @@ class Account < ActiveRecord::Base
   end
 
   def outcome_until(end_date)
-    sum = Money.new(0, 'PLN')
+    sum = Money.new(0, user.settings(:transactions).currency)
     transactions_until(end_date).each do |t|
       sum += t.outcome
     end
@@ -46,7 +46,7 @@ class Account < ActiveRecord::Base
 
   def history_until(end_date)
     events = []
-    balance = Money.new(0, 'PLN')
+    balance = Money.new(0, user.settings(:transactions).currency)
     transactions_until(end_date).sort{|a,b| a.accounted_at <=> b.accounted_at}.each do |t|
       balance += t.income
       balance -= t.outcome

@@ -20,13 +20,63 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  active_record:
+  activerecord:
     models:
       account:
         one: 'Account'
         few: 'Accounts'
+      settings: 'Settings'
+      transaction:
+        one: 'Transaction'
+        few: 'Transactions'
+      schedules:
+        one: 'Scheduled payment'
+        few: 'Scheduled payments'
+    attributes:
+      account:
+        name: Name
+        balance: Balance
+      settings_form:
+        language: 'Language'
+        currency: 'Currency'
+      transaction:
+        name: 'Name'
+        frequency: 'Frequency'
+        income: 'Income'
+        outcome: 'Outcome'
+        accounted_at: 'Accounted at'
+      schedule:
+        name: 'Name'
+        frequency: 'Frequency'
+        income: 'Income'
+        outcome: 'Outcome'
+        starting_at: 'Starting at'
+      user:
+        email: 'E-mail'
+        password: 'Password'
+        password_confirmation: 'Password confirmation'
     update_success:
       settings: 'Settings updated'
-    buttons:
-      save: 'Save'
-      logout: 'Logout'
+  buttons:
+    save: 'Save'
+    logout: 'Sign out'
+    see_all: 'See all'
+    more: 'More'
+    add: 'Add'
+    delete: 'Delete'
+    new_account: 'New account'
+    sign_in: 'Sign in'
+  views:
+    accounts:
+      balance: 'Balance'
+      current_balance: 'Current balance'
+      history: 'History'
+      add_schedule: 'Add scheduled payment'
+      add_transaction: 'Add transaction'
+      initial_state: 'Initial balance'
+      balance_summary: 'Balance summary'
+    sign_in:
+      sign_in: 'Sign in'
+      remember_me: 'Remember me'
+      forgot_your_password: 'Forgot your password'
+      sign_up: 'Sign up'

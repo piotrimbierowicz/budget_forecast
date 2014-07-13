@@ -30,6 +30,10 @@ pl:
         income: 'Dochód'
         outcome: 'Wydatek'
         starting_at: 'Data rozpoczęcia'
+      user:
+        email: 'Adres e-mail'
+        password: 'Hasło'
+        password_confirmation: 'Potwierdzenie hasła'
     update_success:
       settings: 'Ustawienia zostały zaktualizowane'
   buttons:
@@ -40,6 +44,7 @@ pl:
     add: 'Dodaj'
     delete: 'Usuń'
     new_account: 'Nowy rachunek'
+    sign_in: 'Zaloguj'
   views:
     accounts:
       balance: 'Saldo'
@@ -49,3 +54,8 @@ pl:
       add_transaction: 'Dodaj transakcję'
       initial_state: 'Stan początkowy'
       balance_summary: 'Podsumowanie salda'
+    sign_in:
+      sign_in: 'Logowanie'
+      remember_me: 'Zapamiętaj mnie'
+      forgot_your_password: 'Zapomniałeś hasła'
+      sign_up: 'Rejestracja'

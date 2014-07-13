@@ -48,10 +48,12 @@ GEM
       money (>= 6.0.1)
       nokogiri
     execjs (2.2.1)
+    geocoder (1.2.3)
     haml (4.0.5)
       tilt
     hike (1.2.3)
     i18n (0.6.11)
+    i18n_data (0.5.1)
     jbuilder (2.1.2)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -147,7 +149,9 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   eu_central_bank
+  geocoder
   haml
+  i18n_data
   jbuilder (~> 2.0)
   jquery-rails
   ledermann-rails-settings

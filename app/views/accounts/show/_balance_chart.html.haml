@@ -48,5 +48,18 @@
           title: {
               text: null
           },
+          plotLines: [{
+              color: '#808080', // Color value
+              dashStyle: 'ShortDash',
+              label: {
+                text: 'Dzisiaj',
+                rotation: 270,
+                y: 50,
+                x: -10
+              },
+              value: new Date(),
+              width: 1,
+            }],
+
       },
   });

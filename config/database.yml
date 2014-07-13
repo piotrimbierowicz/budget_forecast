@@ -78,8 +78,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: budget_forecast_production
-  username: budget_forecast
-  password: <%= ENV['BUDGET_FORECAST_DATABASE_PASSWORD'] %>

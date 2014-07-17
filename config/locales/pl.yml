@@ -30,6 +30,7 @@ pl:
         income: 'Dochód'
         outcome: 'Wydatek'
         starting_at: 'Data rozpoczęcia'
+        ending_at: 'Data zakończenia'
       user:
         email: 'Adres e-mail'
         password: 'Hasło'

@@ -51,6 +51,7 @@ en:
         income: 'Income'
         outcome: 'Outcome'
         starting_at: 'Starting at'
+        starting_at: 'Ending at'
       user:
         email: 'E-mail'
         password: 'Password'

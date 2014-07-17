@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree ./libraries
+
+
+$(document).ready(function() {
+  $('.datepicker').datepicker({
+    format: 'dd-mm-yyyy'
+  });
+});

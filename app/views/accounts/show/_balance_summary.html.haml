@@ -21,7 +21,9 @@
             %span{:class => balance > 0 ? 'income' : 'outcome'}= humanized_money_with_symbol balance
           %td= transaction.accounted_at.strftime('%Y/%m/%d')
           %td
-            -#= link_to 'Delete', transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
+            - if transaction.can_be_modified?
+              = link_to I18n.t('buttons.edit'), '#', :data => {:target => "#edit_transaction_modal_#{transaction.id}", :toggle => 'modal'}, :class => 'btn btn-warning btn-xs'
+              = link_to I18n.t('buttons.delete'), transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
       - balance -= transaction.income
       - balance += transaction.outcome
     %tr

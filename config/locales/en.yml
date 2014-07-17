@@ -64,7 +64,9 @@ en:
     see_all: 'See all'
     more: 'More'
     add: 'Add'
+    edit: 'Edit'
     delete: 'Delete'
+    close: 'Close'
     new_account: 'New account'
     sign_in: 'Sign in'
   views:

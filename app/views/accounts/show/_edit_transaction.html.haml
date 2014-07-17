@@ -1,0 +1,37 @@
+.modal.fade{"aria-hidden" => "true", role: "dialog", tabindex: "-1", :id => "edit_transaction_modal_#{transaction.id}"}
+  = form_for transaction, :url => create_transaction_account_path(@account) do |f|
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %button.close{"data-dismiss" => "modal", type: "button"}
+            %span{"aria-hidden" => "true"} ×
+            %span.sr-only Close
+          %h4.modal-title
+            Transaction:
+            = transaction.name
+        .modal-body
+          .form-group
+            = f.label :name
+            = f.text_field :name, :class => 'form-control'
+          .row
+            .col-sm-3
+              .form-group
+                = f.label :accounted_at
+                = f.text_field :accounted_at, :class => 'form-control datepicker'
+            .col-sm-4.col-sm-offset-1
+              .form-group
+                = f.label :income
+                .input-group
+                  = f.text_field :income, :class => 'form-control'
+                  .input-group-btn
+                    = f.select :income_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, {selected: current_user.settings(:transactions).currency}, :class => 'form-control', :style=>'width: 65px'
+            .col-sm-4
+              .form-group
+                = f.label :outcome
+                .input-group
+                  = f.text_field :outcome, :class => 'form-control'
+                  .input-group-btn
+                    = f.select :outcome_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, {selected: current_user.settings(:transactions).currency}, :class => 'form-control', :style=>'width: 65px'
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", type: "button"}= I18n.t 'buttons.close'
+          %button.btn.btn-primary{type: "submit"}= I18n.t 'buttons.save'

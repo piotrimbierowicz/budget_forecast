@@ -9,4 +9,8 @@ class Transaction < ActiveRecord::Base
   validates_presence_of :accounted_at
   validates_presence_of :account_id
 
+  def can_be_modified?
+    !self.new_record?
+  end
+
 end

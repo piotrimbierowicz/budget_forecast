@@ -18,4 +18,5 @@
         %td= schedule.starting_at.strftime('%Y/%m/%d')
         %td= schedule.frequency
         %td
+          = link_to I18n.t('buttons.edit'), '', :class => 'btn btn-warning btn-xs'
           = link_to I18n.t('buttons.delete'), schedule_path(schedule), :method=>'delete', :class => 'btn btn-danger btn-xs'

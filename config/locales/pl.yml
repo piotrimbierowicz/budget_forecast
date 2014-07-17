@@ -43,7 +43,9 @@ pl:
     see_all: 'Zobacz wszystkie'
     more: 'Więcej'
     add: 'Dodaj'
+    edit: 'Edytuj'
     delete: 'Usuń'
+    close: 'Zamknij'
     new_account: 'Nowy rachunek'
     sign_in: 'Zaloguj'
   views:

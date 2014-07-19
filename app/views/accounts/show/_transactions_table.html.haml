@@ -18,5 +18,3 @@
         %td
           = link_to I18n.t('buttons.edit'), '#', :data => {:target => "#edit_transaction_modal_#{transaction.id}", :toggle => 'modal'}, :class => 'btn btn-warning btn-xs'
           = link_to I18n.t('buttons.delete'), transaction_path(transaction), :method=>'delete', :class => 'btn btn-danger btn-xs'
-- for transaction in @account.transactions
-  = render :partial => 'accounts/show/edit_transaction', :locals => {transaction: transaction}

@@ -12,6 +12,12 @@
 = render :partial => 'accounts/show/timeline'
 = render :partial => 'accounts/show/balance_chart'
 
+- for transaction in @account.transactions
+  = render :partial => 'accounts/show/edit_transaction', :locals => {transaction: transaction}
+
+- for schedule in @account.schedules
+  = render :partial => 'accounts/show/edit_schedule', :locals => {schedule: schedule}
+
 #accordion.panel-group{:style=>'margin-bottom: 50px'}
   .panel.panel-default
     .panel-heading

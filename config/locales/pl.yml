@@ -37,6 +37,8 @@ pl:
         password_confirmation: 'Potwierdzenie hasła'
     update_success:
       settings: 'Ustawienia zostały zaktualizowane'
+      tranaction: 'Transakcja została zaktualizowana.'
+      schedule: 'Płatność została zaktualizowana.'
   buttons:
     save: 'Zapisz'
     logout: 'Wyloguj'

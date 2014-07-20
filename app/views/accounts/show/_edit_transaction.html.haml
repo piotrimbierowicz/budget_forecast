@@ -1,5 +1,5 @@
 .modal.fade{"aria-hidden" => "true", role: "dialog", tabindex: "-1", :id => "edit_transaction_modal_#{transaction.id}"}
-  = form_for transaction, :url => create_transaction_account_path(@account) do |f|
+  = form_for transaction do |f|
     .modal-dialog
       .modal-content
         .modal-header

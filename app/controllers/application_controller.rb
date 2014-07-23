@@ -4,8 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter do
-    country_code = I18nData.country_code(request.location.country)
-    I18n.locale = I18nData.country_code(request.location.country).downcase.to_sym unless user_signed_in? or country_code.blank?
+    begin
+      country_code = I18nData.country_code(request.location.country)
+      I18n.locale = I18nData.country_code(request.location.country).downcase.to_sym unless user_signed_in? or country_code.blank?
+    rescue
+    end
   end
 
 end

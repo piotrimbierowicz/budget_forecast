@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140717160403) do
+ActiveRecord::Schema.define(version: 20140722161324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,24 @@ ActiveRecord::Schema.define(version: 20140717160403) do
   end
 
   add_index "settings", ["target_type", "target_id", "var"], name: "index_settings_on_target_type_and_target_id_and_var", unique: true, using: :btree
+
+  create_table "tax_types", force: true do |t|
+    t.string   "name"
+    t.float    "percent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
+  create_table "taxes", force: true do |t|
+    t.integer  "transaction_id"
+    t.integer  "schedule_id"
+    t.float    "percent"
+    t.date     "accounted_at"
+    t.string   "tax_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "transactions", force: true do |t|
     t.string   "name"

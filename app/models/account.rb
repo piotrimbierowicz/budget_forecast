@@ -23,6 +23,27 @@ class Account < ActiveRecord::Base
     sum
   end
 
+  def income_in(year, month)
+    end_date = Date.new(year, month, 1)
+    end_date = end_date + 1.month - 1.day
+    start_date = Date.new(year, month, 1)
+    income_until(end_date) - income_until(start_date)
+  end
+
+  def outcome_in(year, month)
+    end_date = Date.new(year, month, 1)
+    end_date = end_date + 1.month - 1.day
+    start_date = Date.new(year, month, 1)
+    outcome_until(end_date) - outcome_until(start_date)
+  end
+
+  def balance_in(year, month)
+    end_date = Date.new(year, month, 1)
+    end_date = end_date + 1.month - 1.day
+    start_date = Date.new(year, month, 1)
+    balance_until(end_date) - balance_until(start_date)
+  end
+
   def balance
     income_until(Date.current) - outcome_until(Date.current)
   end

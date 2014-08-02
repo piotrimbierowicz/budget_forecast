@@ -1,0 +1,16 @@
+= link_to I18n.t('buttons.new_tax_type'), new_tax_type_path, :class => 'btn btn-primary'
+%br
+%br
+%table.table.table-striped
+  %thead
+    %tr
+      %th= TaxType.human_attribute_name :name
+      %th= TaxType.human_attribute_name :percent
+      %th
+  %tbody
+    - for tax_type in @tax_types
+      %tr
+        %td= link_to tax_type.name, tax_type_path(tax_type)
+        %td= tax_type.percent
+        %td
+          = link_to I18n.t('buttons.delete'), tax_type_path(tax_type), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-xs btn-danger'

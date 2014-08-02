@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   resources :transactions, :only => [:destroy, :update]
   resources :schedules, :only => [:destroy, :update]
+  resources :tax_types, :except => [:edit]
 
   get 'settings' => 'settings#index'
   post 'update_settings' => 'settings#update'

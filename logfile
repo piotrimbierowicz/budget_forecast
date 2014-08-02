@@ -1,3 +1,19 @@
 LOG:  database system was shut down at 2014-07-18 16:44:02 CEST
 LOG:  autovacuum launcher started
 LOG:  database system is ready to accept connections
+ERROR:  invalid input syntax for type date: "" at character 146
+STATEMENT:  SELECT COUNT(*) FROM "bookings"  WHERE "bookings"."property_id" = 7 AND (line_item_id is null or purchased_at is not null) AND ((arrival_date >= '' and arrival_date < '')
+	        or (departure_date > '' and departure_date <= '')
+	        or (arrival_date <= '' and departure_date >= ''))
+ERROR:  invalid input syntax for type date: "" at character 178
+STATEMENT:  SELECT COUNT(*) FROM "bookings"  WHERE "bookings"."property_id" = 7 AND (line_item_id is null or purchased_at is not null) AND ((arrival_date >= '2014-07-16' and arrival_date < '')
+	        or (departure_date > '2014-07-16' and departure_date <= '')
+	        or (arrival_date <= '2014-07-16' and departure_date >= ''))
+ERROR:  invalid input syntax for type date: "" at character 178
+STATEMENT:  SELECT COUNT(*) FROM "bookings"  WHERE "bookings"."property_id" = 7 AND (line_item_id is null or purchased_at is not null) AND ((arrival_date >= '2014-07-16' and arrival_date < '')
+	        or (departure_date > '2014-07-16' and departure_date <= '')
+	        or (arrival_date <= '2014-07-16' and departure_date >= ''))
+ERROR:  invalid input syntax for type date: "" at character 178
+STATEMENT:  SELECT COUNT(*) FROM "bookings"  WHERE "bookings"."property_id" = 7 AND (line_item_id is null or purchased_at is not null) AND ((arrival_date >= '2014-07-16' and arrival_date < '')
+	        or (departure_date > '2014-07-16' and departure_date <= '')
+	        or (arrival_date <= '2014-07-16' and departure_date >= ''))

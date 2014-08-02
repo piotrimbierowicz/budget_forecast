@@ -1,0 +1,20 @@
+- for account in @accounts
+  %h3= account.name
+  %p= humanized_money_with_symbol account.balance_until(Date.current)
+  %table.table
+    %thead
+      %tr
+        %th
+          Okres
+        %th
+          Uznania
+        %th
+          Obciążenia
+        %th
+          Bilans
+    %tbody
+      - date = Date.current
+      - 5.times do |i|
+        = render :partial => 'dashboard/index/balance_row', :locals => {account: account, year: date.year, month: date.month}
+        - date -= 1.month
+

@@ -1,0 +1,6 @@
+- date = Date.new(year, month, 1)
+%tr
+  %td= date.strftime('%Y %B')
+  %td= account.income_in(year, month)
+  %td= account.outcome_in(year, month)
+  %td= account.balance_in(year, month)

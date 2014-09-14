@@ -1,6 +1,10 @@
 - for account in @accounts
   %h3= account.name
-  %p= humanized_money_with_symbol account.balance_until(Date.current)
+  %p
+    Aktualne saldo rachunku:
+    %strong
+      %span{:class => account.balance_until(Date.current) > 0 ? 'income' : 'outcome'}
+        = humanized_money_with_symbol account.balance_until(Date.current)
   %table.table
     %thead
       %tr

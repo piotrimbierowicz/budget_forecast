@@ -3,4 +3,6 @@
   %td= date.strftime('%Y %B')
   %td= account.income_in(year, month)
   %td= account.outcome_in(year, month)
-  %td= account.balance_in(year, month)
+  %td
+    %span{:class => account.balance_in(year, month) > 0 ? 'income' : 'outcome'}
+      = humanized_money_with_symbol account.balance_in(year, month)

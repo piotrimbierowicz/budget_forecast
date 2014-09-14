@@ -39,6 +39,8 @@ pl:
       settings: 'Ustawienia zostały zaktualizowane'
       tranaction: 'Transakcja została zaktualizowana.'
       schedule: 'Płatność została zaktualizowana.'
+    create_success:
+      tranaction: 'Transakcja została dodana.'
   buttons:
     save: 'Zapisz'
     logout: 'Wyloguj'
@@ -50,6 +52,7 @@ pl:
     close: 'Zamknij'
     new_account: 'Nowy rachunek'
     sign_in: 'Zaloguj'
+    new_transaction: 'Dodaj transakcję'
   views:
     accounts:
       balance: 'Saldo'

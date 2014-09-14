@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :transactions, :only => [:destroy, :update]
+  resources :transactions
   resources :schedules, :only => [:destroy, :update]
   resources :tax_types, :except => [:edit]
 

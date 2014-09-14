@@ -1,7 +1,27 @@
-.btn-group.btn-group-justified
+.hidden-sm.hidden-xs
+  .btn-group.btn-group-justified
+    - start_date = @period - 3.months
+    - 7.times do
+      %a.btn.btn-default{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
+        = (I18n.t :abbr_month_names, :scope => :date)[start_date.month].capitalize
+        = start_date.year
+        - start_date += 1.month
+.visible-xs.visible.sm
   - start_date = @period - 3.months
-  - 7.times do
-    %a.btn.btn-default{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
+  .btn-group.btn-group-justified
+    - 3.times do
+      %a.btn.btn-default{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
+        = (I18n.t :abbr_month_names, :scope => :date)[start_date.month].capitalize
+        = start_date.year
+        - start_date += 1.month
+  .btn-group.btn-group-justified
+    %a.btn.btn-primary{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
       = (I18n.t :abbr_month_names, :scope => :date)[start_date.month].capitalize
       = start_date.year
       - start_date += 1.month
+  .btn-group.btn-group-justified
+    - 3.times do
+      %a.btn.btn-default{:href=>account_path(@account, :year => start_date.year, :month => start_date.month), :class => start_date.month == @period.month ? 'active' : ''}
+        = (I18n.t :abbr_month_names, :scope => :date)[start_date.month].capitalize
+        = start_date.year
+        - start_date += 1.month

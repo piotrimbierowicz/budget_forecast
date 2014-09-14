@@ -1,0 +1,33 @@
+%h3= I18n.t 'views.accounts.add_transaction'
+= form_for @transaction do |f|
+  .form-group
+    = f.label :account_id
+    = f.collection_select :account_id, @accounts, :id, :name, {:include_blank => 'Wybierz rachunek'}, :class => 'form-control'
+  .form-group
+    = f.label :name
+    = f.text_field :name, :class => 'form-control'
+  .row
+    .col-sm-3
+      .form-group
+        = f.label :accounted_at
+        = f.text_field :accounted_at, :class => 'form-control datepicker'
+    .col-sm-3.col-sm-offset-3
+      .form-group
+        .row
+          .col-sm-6
+            = f.label :income
+            = f.text_field :income, :class => 'form-control'
+          .col-sm-6
+            %label &nbsp;
+            = f.select :income_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, {selected: current_user.settings(:transactions).currency}, :class => 'form-control'
+    .col-sm-3
+      .form-group
+        .row
+          .col-sm-6
+            = f.label :outcome
+            = f.text_field :outcome, :class => 'form-control'
+          .col-sm-6
+            %label &nbsp;
+            = f.select :outcome_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, {selected: current_user.settings(:transactions).currency}, :class => 'form-control'
+  .form-group
+    = f.submit I18n.t('buttons.add'), :class => 'btn btn-primary'

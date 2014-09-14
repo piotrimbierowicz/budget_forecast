@@ -58,6 +58,8 @@ en:
         password_confirmation: 'Password confirmation'
     update_success:
       settings: 'Settings updated'
+    create_success:
+      tranaction: 'Transaction created.'
   buttons:
     save: 'Save'
     logout: 'Sign out'
@@ -69,6 +71,7 @@ en:
     close: 'Close'
     new_account: 'New account'
     sign_in: 'Sign in'
+    new_transaction: 'New transaction'
   views:
     accounts:
       balance: 'Balance'

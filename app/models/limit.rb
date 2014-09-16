@@ -40,4 +40,12 @@ class Limit < ActiveRecord::Base
     current_month_daily_balance * days
   end
 
+  def spendings_on(day)
+    sum = Money.new(0)
+    for transaction in self.account.transactions.where('accounted_at > ? and accounted_at <= ?', day - 1.day, day)
+      sum += transaction.outcome
+    end
+    sum
+  end
+
 end

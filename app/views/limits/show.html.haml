@@ -32,3 +32,16 @@
       %span{:class => @limit.current_month_daily_balance > 0 ? 'income' : 'outcome'}
         = humanized_money_with_symbol @limit.current_month_daily_balance
 
+%table
+  - for day in (Date.current.beginning_of_month..Date.current.end_of_month)
+    %tr
+      %td= day.day
+      %td= humanized_money_with_symbol @limit.spendings_on(day).exchange_to(current_user.settings(:transactions).currency)
+      %td= humanized_money_with_symbol @limit.current_month_primary_daily_limit
+      %td
+        - diff = @limit.current_month_primary_daily_limit - @limit.spendings_on(day)
+        %span{:class => diff > 0 ? 'income' : 'outcome'}
+          = humanized_money_with_symbol diff
+
+
+

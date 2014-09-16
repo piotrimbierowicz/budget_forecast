@@ -2,7 +2,7 @@
   = "#{I18n.t('activerecord.models.limit.one')}:"
   = @limit.name
 
-%table
+%table.table
   %tr
     %td= I18n.t 'views.limits.limit_value'
     %td= humanized_money_with_symbol @limit.value
@@ -15,4 +15,20 @@
   %tr
     %td Kwota pozostała do wykorzystania
     %td= humanized_money_with_symbol @limit.current_month_limit_left
+  %tr
+    %td Dzienna kwota pozostała do wykorzystania
+    %td= humanized_money_with_symbol @limit.current_month_daily_limit
+  %tr
+    %td Pierwotna dzienna kwota do wykorzystania
+    %td= humanized_money_with_symbol @limit.current_month_primary_daily_limit
+  %tr
+    %td Bilans w skali miesiąca
+    %td
+      %span{:class => @limit.current_month_monthly_balance > 0 ? 'income' : 'outcome'}
+        = humanized_money_with_symbol @limit.current_month_monthly_balance
+  %tr
+    %td Bilans w skali dnia
+    %td
+      %span{:class => @limit.current_month_daily_balance > 0 ? 'income' : 'outcome'}
+        = humanized_money_with_symbol @limit.current_month_daily_balance
 

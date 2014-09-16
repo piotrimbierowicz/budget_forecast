@@ -1,0 +1,19 @@
+= link_to I18n.t('buttons.new_limit'), new_limit_path, :class => 'btn btn-primary'
+%br
+%br
+%table.table.table-striped
+  %thead
+    %tr
+      %th= Limit.human_attribute_name :name
+      %th= I18n.t 'activerecord.models.account.one'
+      %th= Limit.human_attribute_name :value
+      %th= Limit.human_attribute_name :period
+      %th
+  %tbody
+    - for limit in @limits
+      %tr
+        %td= link_to limit.name, limit_path(limit)
+        %td= limit.account.name
+        %td= humanized_money_with_symbol limit.value
+        %td= limit.period
+        %td

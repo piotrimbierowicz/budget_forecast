@@ -11,6 +11,9 @@ pl:
       schedules:
         one: 'Stała płatność'
         few: 'Stałe płatności'
+      limit:
+        one: 'Limit'
+        few: 'Limity'
     attributes:
       account:
         name: Nazwa
@@ -67,3 +70,5 @@ pl:
       remember_me: 'Zapamiętaj mnie'
       forgot_your_password: 'Zapomniałeś hasła'
       sign_up: 'Rejestracja'
+    limits:
+      limit_value: 'Wysokość limitu'

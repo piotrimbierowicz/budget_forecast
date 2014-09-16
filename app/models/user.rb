@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :transactions, :through => :accounts
   has_many :schedules, :through => :accounts
   has_many :tax_types
+  has_many :limits, :through => :accounts
 
   has_settings do |s|
     s.key :transactions, :defaults => { :currency => 'PLN' }

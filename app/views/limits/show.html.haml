@@ -1,0 +1,18 @@
+%h3
+  = "#{I18n.t('activerecord.models.limit.one')}:"
+  = @limit.name
+
+%table
+  %tr
+    %td= I18n.t 'views.limits.limit_value'
+    %td= humanized_money_with_symbol @limit.value
+  %tr
+    %td Wykorzystano w tym miesiącu
+    %td= humanized_money_with_symbol @limit.current_month_spendings_value
+  %tr
+    %td Stałe płatności w tym miesiącu
+    %td= humanized_money_with_symbol @limit.current_month_schedules_value
+  %tr
+    %td Kwota pozostała do wykorzystania
+    %td= humanized_money_with_symbol @limit.current_month_limit_left
+

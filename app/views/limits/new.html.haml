@@ -1,0 +1,18 @@
+= form_for @limit do |f|
+  .form-group
+    = f.label :name, :class => 'control-label'
+    = f.text_field :name, :class => 'form-control'
+  .form-group
+    = f.label :period, :class => 'control-label'
+    = f.text_field :period, :class => 'form-control', :value => Limit::Monthly
+  .form-group
+    = f.label :value, :class => 'control-label'
+    .input-group
+      = f.text_field :value, :class => 'form-control'
+      .input-group-btn
+        = f.select :value_currency, {'PLN' => 'PLN', 'EUR' => 'EUR', 'USD' => 'USD'}, {selected: current_user.settings(:transactions).currency}, :class => 'form-control', :style=>'width: 65px'
+  .form-group
+    = f.label :account_id
+    = f.collection_select :account_id, @accounts, :id, :name, {:include_blank => 'Wybierz rachunek'}, :class => 'form-control'
+  .form-group
+    = f.submit I18n.t('buttons.save'), :class => 'btn btn-primary'
